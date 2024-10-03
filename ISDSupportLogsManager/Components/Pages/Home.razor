@@ -1,0 +1,40 @@
+﻿@page "/home"
+
+<PageTitle>Home</PageTitle>
+
+<h1> Hello, world! </h1>
+
+Welcome to your new app.
+
+@using Radzen
+@using Radzen.Blazor
+
+<RadzenDataGrid Data="@data" TItem="MyItemType" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Style="width: 80%;">
+    <Columns>
+        <RadzenDataGridColumn TItem="MyItemType" Property="Id" Title="ID" />
+        <RadzenDataGridColumn TItem="MyItemType" Property="Name" Title="Name" />
+        <RadzenDataGridColumn TItem="MyItemType" Property="Description" Title="Description" />
+    </Columns>
+</RadzenDataGrid>
+
+@code {
+    private List<MyItemType> data;
+
+    protected override void OnInitialized()
+    {
+        // Initialize your data here
+        data = new List<MyItemType>
+        {
+            new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
+            new MyItemType { Id = 2, Name = "Item 2", Description = "Description 2" },
+            // Add more items as needed
+        };
+    }
+
+    public class MyItemType
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+}

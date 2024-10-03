@@ -1,0 +1,120 @@
+﻿@inherits LayoutComponentBase
+
+<div class="container-fluid p-0">
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg bg-white border-bottom" style="min-height: 54px;">
+        <div class="container-fluid d-flex justify-content-between align-items-center" style="height: 100%;">
+            <!-- List -->
+            <div class="d-flex align-items-center me-3">
+                <a href="#" class="text-dark d-flex align-items-center" style="text-decoration: none;">
+                    <img src="https://img.icons8.com/ios-filled/40/list.png" alt="List Icon" style="width: 16px; height: 16px;" class="me-2">
+                    <span>List</span>
+                </a>
+            </div>
+            <!-- Title -->
+            <div class="d-flex flex-column align-items-center flex-grow-1">
+                <div class="d-flex align-items-center">
+                    <img src="https://img.icons8.com/color/48/drawer.png" alt="Icon" style="width: 30px; height: 30px;" class="me-2">
+                    <div class="d-flex flex-column align-items-start">
+                        <span class="navbar-brand mb-0 h6" style="font-size: 1rem; line-height: 1; margin-top: 0; padding-top: 0;">
+                            TPC Support Logs
+                        </span>
+                        <div class="badge bg-success text-light rounded-pill" style="padding: 3px 10px; font-size: 0.5rem; margin-top: 0;">
+                            Version 1.0.0.0 - LIVE
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile -->
+            <div class="d-flex align-items-center ms-3">
+                <img src="https://img.icons8.com/fluency/48/test-account--v1.png" alt="User" style="width: 24px; height: 24px;" class="rounded-circle me-2" />
+                <a class="text-dark dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+                    Juan Dela Cruz
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="d-flex container-fluid" style="min-height: 100vh;">
+        <!-- Left Sidebar -->
+        <div class="border-end" style="background-color: #f8f8f8; width: 300px;">
+            <h5 class="p-3" style="margin: 0;">Drawer</h5>
+            <hr class="border border-gray-500" style="margin: 0;">
+            <nav>
+                <ul class="nav flex-column p-3" style="list-style: none; padding: 0; margin: 0;">
+                    <li class="nav-item" style="margin-bottom: 0.5rem;">
+                        <div class="card" style="border: none; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <a class="nav-link active d-flex align-items-center" href="#" style="padding: 10px; text-decoration: none; color: #000;">
+                                <img src="https://img.icons8.com/3d-fluency/94/network-card.png" alt="Home Icon" class="me-2" style="height: 24px; width: 24px;">
+                                <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
+                                    <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
+                                        <div style="margin: 0; color: black; font-weight: bold;">INFRA</div>
+                                        <small class="text-muted" style="font-size: 0.70rem;">150 logs</small>
+                                    </div>
+                                    <small class="text-muted" style="font-size: 0.70rem; line-height: 0.8;">Infrastructure</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item" style="margin-bottom: 0.5rem;">
+                        <div class="card" style="border: none; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <a class="nav-link active d-flex align-items-center" href="#" style="padding: 10px; text-decoration: none; color: #000;">
+                                <img src="https://img.icons8.com/color/48/sap.png" alt="Home Icon" class="me-2" style="height: 24px; width: 24px;">
+                                <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
+                                    <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
+                                        <div style="margin: 0; color: black; font-weight: bold;">ERPS SAP</div>
+                                        <small class="text-muted" style="font-size: 0.70rem;">150 logs</small>
+                                    </div>
+                                    <small class="text-muted" style="font-size: 0.70rem; line-height: 0.8;">SAP Systems</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item" style="margin-bottom: 0.5rem;">
+                        <div class="card" style="border: none; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <a class="nav-link active d-flex align-items-center" href="#" style="padding: 10px; text-decoration: none; color: #000;">
+                                <img src="https://img.icons8.com/fluency/48/human-resources.png" alt="Home Icon" class="me-2" style="height: 24px; width: 24px;">
+                                <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
+                                    <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
+                                        <div style="margin: 0; color: black; font-weight: bold;">NON PROD</div>
+                                        <small class="text-muted" style="font-size: 0.70rem;">150 logs</small>
+                                    </div>
+                                    <small class="text-muted" style="font-size: 0.70rem; line-height: 0.8;">Corporate Common Systems</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item" style="margin-bottom: 0.5rem;">
+                        <div class="card" style="border: none; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <a class="nav-link active d-flex align-items-center" href="#" style="padding: 10px; text-decoration: none; color: #000;">
+                                <img src="https://img.icons8.com/fluency/48/deployment.png" alt="Home Icon" class="me-2" style="height: 24px; width: 24px;">
+                                <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
+                                    <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
+                                        <div style="margin: 0; color: black; font-weight: bold;">MFG</div>
+                                        <small class="text-muted" style="font-size: 0.70rem;">150 logs</small>
+                                    </div>
+                                    <small class="text-muted" style="font-size: 0.70rem; line-height: 0.8;">Manufacturing Systems</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-fluid">
+            <!-- or container, depending on your layout -->
+            <main class="flex-grow-1 p-4">
+                @Body
+            </main>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2024 My Application - All Rights Reserved
+    </footer>
+</div>
