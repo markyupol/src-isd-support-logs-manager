@@ -4,6 +4,7 @@ using ISDSupportLogsManager.Contracts.Repositories;
 using ISDSupportLogsManager.Repositories;
 using ISDSupportLogsManager.Services;
 using ISDSupportLogsManager.State;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddRadzenComponents();
 
 var app = builder.Build();
 

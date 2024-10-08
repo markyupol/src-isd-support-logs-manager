@@ -18,9 +18,9 @@
         </div>
 
         <!-- Third square with icon -->
-        <div class="square-small rounded-square">
+        <button class="square-small rounded-square" style="border: none; cursor: pointer;" @onclick="ShowForm">
             <img src="https://img.icons8.com/fluency/48/add--v1.png" alt="Icon 3" class="icon">
-        </div>
+        </button>
 
         <!-- Fourth square with icon -->
         <div class="square-small rounded-square">
@@ -29,17 +29,37 @@
     </div>
 </div>
 
-<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="6" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
-                Data="@data" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single" Style="margin-top: 15px; border-radius: 10px;">
-    <Columns>
-        <RadzenDataGridColumn TItem="MyItemType" Property="Id" Title="ID" Filterable="false" Frozen="true" Width="25px" TextAlign="TextAlign.Center" />
-        <RadzenDataGridColumn TItem="MyItemType" Property="Name" Title="Name" Frozen="true" Width="100px" />
-        <RadzenDataGridColumn TItem="MyItemType" Property="Description" Title="Description" />
-    </Columns>
-</RadzenDataGrid>
+@if (isFormVisible)
+{
+    <div class="form-overlay">
+        <div class="form-container">
+            <form>
+                <RadzenSteps Change=@OnChange @rendermode="RenderMode.InteractiveServer">
+                    <Steps>
+                        <RadzenStepsItem Text="Where">
+                            <RadzenLabel Text="Select Value" Component="DropDownDataGridBindValue" />
+                            <RadzenDropDownDataGrid @bind-Value=@SupportHolder.Section Data=@Sections  Name="DropDownDataGridBindValue"
+                                                    TextProperty="@("Name")" />
+                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                        </RadzenStepsItem>
+                        <RadzenStepsItem Text="When">
+                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                        </RadzenStepsItem>
+                        <RadzenStepsItem Text="Why">
+                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                        </RadzenStepsItem>
+                        <RadzenStepsItem Text="How">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                        </RadzenStepsItem>
+                    </Steps>
+                </RadzenSteps>
+            </form>
+        </div>
+    </div>
+}
 
 @code {
-    private List<MyItemType> data;
 
     protected override void OnInitialized()
     {
@@ -55,16 +75,246 @@
             new MyItemType { Id = 3, Name = "Item 3", Description = "Description 3" },
             new MyItemType { Id = 4, Name = "Item 4", Description = "Description 4" },
             new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
-            new MyItemType { Id = 2, Name = "Item 2", Description = "Description 2" },
-            new MyItemType { Id = 3, Name = "Item 3", Description = "Description 3" },
-            new MyItemType { Id = 4, Name = "Item 4", Description = "Description 4" },
-            new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
-            new MyItemType { Id = 2, Name = "Item 2", Description = "Description 2" },
-            new MyItemType { Id = 3, Name = "Item 3", Description = "Description 3" },
-            new MyItemType { Id = 4, Name = "Item 4", Description = "Description 4" },
-            // Add more items as needed
+        };
+
+        Sections = new List<Section>()
+        {
+         new Section { SectionId = 0, Name = "INFRA", Description = "Infrastructure" },
+         new Section { SectionId = 0, Name = "ERPS", Description = "SAP Systems" },
+         new Section { SectionId = 0, Name = "NON PROD", Description = "Admin and HR" },
+         new Section { SectionId = 0, Name = "PROD", Description = "Manufacturing" }
+        };
+
+        Shifts = new List<Shift>()
+        {
+            new Shift { ShiftId = 0, Name = "D3", Description = "" },
+            new Shift { ShiftId = 0, Name = "D4", Description = "" },
+            new Shift { ShiftId = 0, Name = "E3", Description = "" },
+            new Shift { ShiftId = 0, Name = "E4", Description = "" },
+            new Shift { ShiftId = 0, Name = "L1", Description = "" },
+            new Shift { ShiftId = 0, Name = "L2", Description = "" },
+            new Shift { ShiftId = 0, Name = "L4", Description = "" },
+        };
+
+        Bizs = new List<Biz>()
+        {
+           new Biz { BizId = 1, Name = "BMS", Description = "" },
+            new Biz { BizId = 2, Name = "Corp.Admin", Description = "" },
+            new Biz { BizId = 3, Name = "Corp. Engg", Description = "" },
+            new Biz { BizId = 4, Name = "External", Description = "" },
+            new Biz { BizId = 5, Name = "Finance and Accounting", Description = "" },
+            new Biz { BizId = 6, Name = "HEADS GRP (H1)", Description = "" },
+            new Biz { BizId = 7, Name = "MAG GRP (L2)", Description = "" },
+            new Biz { BizId = 8, Name = "MAS GRP (N3)", Description = "" },
+            new Biz { BizId = 9, Name = "RE/MSL", Description = "" }
+        };
+
+        Departments = new List<Department>()
+        {
+            new Department { BizId = 1, Name = "New Product", Description = "" },
+            new Department { BizId = 2, Name = "CMA Ops", Description = "" },
+            new Department { BizId = 3, Name = "DCC", Description = "" },
+            new Department { BizId = 4, Name = "Design & Automation", Description = "" },
+            new Department { BizId = 5, Name = "Expat", Description = "" },
+            new Department { BizId = 6, Name = "EDLC", Description = "" },
+            new Department { BizId = 7, Name = "Facilities", Description = "" },
+            new Department { BizId = 8, Name = "Finance/Accounting", Description = "" },
+            new Department { BizId = 9, Name = "General Affairs", Description = "" },
+            new Department { BizId = 10, Name = "HGA Op", Description = "" },
+            new Department { BizId = 11, Name = "HRD/TTD", Description = "" },
+            new Department { BizId = 12, Name = "IND Op", Description = "" },
+            new Department { BizId = 13, Name = "ISD", Description = "" },
+            new Department { BizId = 14, Name = "RE/MSL", Description = "" },
+            new Department { BizId = 15, Name = "SCM", Description = "" },
+            new Department { BizId = 16, Name = "Safety/Security", Description = "" },
+            new Department { BizId = 17, Name = "TEP Sales", Description = "" },
+            new Department { BizId = 18, Name = "IHCS", Description = "" }
+        };
+
+        Scopes = new List<Scope>()
+        {
+            new Scope { ScopeId = 1, Name = "Request", Description = "" },
+            new Scope { ScopeId = 2, Name = "Incident", Description = "" },
+            new Scope { ScopeId = 3, Name = "Others", Description = "" }
+        };
+
+        Categorys = new List<Category>()
+        {
+            new Category { CategoryId = 1,  Name = "LTS-IND", Description = "" },
+            new Category { CategoryId = 2,  Name = "LTS-CMA", Description = "" },
+            new Category { CategoryId = 3,  Name = "LTS-EDLC", Description = "" },
+            new Category { CategoryId = 4,  Name = "LTS-IND", Description = "" },
+            new Category { CategoryId = 5,  Name = "Attendance Production", Description = "" },
+            new Category { CategoryId = 6,  Name = "CAPEX Online", Description = "" },
+            new Category { CategoryId = 7,  Name = "Checksheet Online", Description = "" },
+            new Category { CategoryId = 8,  Name = "DOR Online", Description = "" },
+            new Category { CategoryId = 9,  Name = "ECN Online", Description = "" },
+            new Category { CategoryId = 10, Name = "EIS", Description = "" },
+            new Category { CategoryId = 11, Name = "FA Online", Description = "" },
+            new Category { CategoryId = 12, Name = "HR Terminal", Description = "" },
+            new Category { CategoryId = 13, Name = "Jigs and Fixture System", Description = "" },
+            new Category { CategoryId = 14, Name = "Machine Qual", Description = "" },
+            new Category { CategoryId = 15, Name = "OBT Online", Description = "" },
+            new Category { CategoryId = 16, Name = "OEE", Description = "" },
+            new Category { CategoryId = 17, Name = "OPEX Application", Description = "" },
+            new Category { CategoryId = 18, Name = "PNCM Online", Description = "" },
+            new Category { CategoryId = 19, Name = "Production Attendance", Description = "" },
+            new Category { CategoryId = 20, Name = "Shuttle Reservation", Description = "" },
+            new Category { CategoryId = 21, Name = "Synergy", Description = "" },
+            new Category { CategoryId = 22, Name = "TEPM Online", Description = "" },
+            new Category { CategoryId = 23, Name = "TPC Website", Description = "" },
+            new Category { CategoryId = 24, Name = "TTD Application", Description = "" },
+            new Category { CategoryId = 25, Name = "TTD Online", Description = "" },
+            new Category { CategoryId = 26, Name = "Workstation Docs", Description = "" },
+            new Category { CategoryId = 27, Name = "MSL Online", Description = "" },
+            new Category { CategoryId = 28, Name = "DCC Online", Description = "" },
+            new Category { CategoryId = 29, Name = "Auto Yield Report", Description = "" },
+            new Category { CategoryId = 30, Name = "Manhrs Online", Description = "" },
+            new Category { CategoryId = 31, Name = "CSO Online", Description = "" },
+            new Category { CategoryId = 32, Name = "GRR Online", Description = "" },
+            new Category { CategoryId = 33, Name = "PA Online", Description = "" },
+            new Category { CategoryId = 34, Name = "Material Online", Description = "" },
+            new Category { CategoryId = 35, Name = "OPEX Budget", Description = "" },
+            new Category { CategoryId = 36, Name = "Clinic Online", Description = "" },
+            new Category { CategoryId = 37, Name = "eHR", Description = "" },
+            new Category { CategoryId = 38, Name = "TTD Application", Description = "" },
+            new Category { CategoryId = 39, Name = "Fixed Asset Online", Description = "" },
+            new Category { CategoryId = 40, Name = "Machine Shop Online", Description = "" },
+            new Category { CategoryId = 41, Name = "Document Request Online", Description = "" },
+            new Category { CategoryId = 42, Name = "HGA DATA TRANSFER", Description = "" },
+            new Category { CategoryId = 43, Name = "HGA-LTS", Description = "" },
+            new Category { CategoryId = 44, Name = "MRF ONLINE", Description = "" },
+            new Category { CategoryId = 45, Name = "E-Learning", Description = "" },
+            new Category { CategoryId = 46, Name = "TABLEAU", Description = "" },
+            new Category { CategoryId = 47, Name = "Change Point Application", Description = "" },
+            new Category { CategoryId = 48, Name = "GLAD", Description = "" },
+            new Category { CategoryId = 49, Name = "LEGACY SR ONLINE", Description = "" },
+            new Category { CategoryId = 50, Name = "ELECTRICAL YIELD", Description = "" },
+            new Category { CategoryId = 51, Name = "IMMS", Description = "" },
+            new Category { CategoryId = 52, Name = "TVDisplay", Description = "" },
+            new Category { CategoryId = 53, Name = "OOC ALARM", Description = "" },
+            new Category { CategoryId = 54, Name = "SAE SYSTEMS", Description = "" }
+        };
+
+        Users = new List<User>()
+        {
+            new User { UserId = 1023712, FirstName = "Marq Paul", LastName = "Gonzales", EmailAddress = "marq.gonzales@tdk.com" }
         };
     }
+}
+
+@code {
+
+    public class Section
+    {
+        public int SectionId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+
+    public class Shift
+    {
+        public int ShiftId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+    public class Biz
+    {
+        public int BizId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+
+    public class Department
+    {
+        public int DepartmentId { get; set; }
+        public int BizId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+
+    public class Scope
+    {
+        public int ScopeId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+
+    public class Category
+    {
+        public int CategoryId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+
+    public class User
+    {
+        public int UserId { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string EmailAddress { get; set; } = string.Empty;
+    }
+
+    public class Support
+    {
+        public Section Section { get; set; } = new Section();
+        public Shift Shift { get; set; } = new Shift();
+        public Biz Biz { get; set; } = new Biz();
+        public Department Department { get; set; } = new Department();
+        public Scope Scope { get; set; } = new Scope();
+        public Category Category { get; set; } = new Category();
+        public User User { get; set; } = new User();
+
+        public string SectionValue => Section.Name;
+        public string ShiftValue => Shift.Name;
+        public string BizValue => Biz.Name;
+        public string DepartmentValue => Department.Name;
+        public string ScopeValue => Scope.Name;
+        public string CategoryValue => Category.Name;
+        public string UserValue => $"{User.FirstName} {User.LastName}";
+    }
+
+    public List<Section> Sections { get; set; } = new List<Section>();
+    public List<Shift> Shifts { get; set; } = new List<Shift>();
+    public List<Biz> Bizs { get; set; } = new List<Biz>();
+    public List<Department> Departments { get; set; } = new List<Department>();
+    public List<Scope> Scopes { get; set; } = new List<Scope>();
+    public List<Category> Categorys { get; set; } = new List<Category>();
+    public List<User> Users { get; set; } = new List<User>();
+
+    public Support SupportHolder { get; set; } = new Support();
+
+    void OnChange(int index)
+    {
+
+    }
+}
+
+@code {
+    private bool isFormVisible = false;
+
+    private void ShowForm()
+    {
+        isFormVisible = true;
+    }
+
+    private void HideForm()
+    {
+        isFormVisible = false;
+    }
+}
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="6" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@data" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single" Style="margin-top: 15px; border-radius: 10px;">
+    <Columns>
+        <RadzenDataGridColumn TItem="MyItemType" Property="Id" Title="ID" Filterable="false" Frozen="true" Width="25px" TextAlign="TextAlign.Center" />
+        <RadzenDataGridColumn TItem="MyItemType" Property="Name" Title="Name" Frozen="true" Width="100px" />
+        <RadzenDataGridColumn TItem="MyItemType" Property="Description" Title="Description" />
+    </Columns>
+</RadzenDataGrid>
+
+@code {
+    private List<MyItemType> data;
 
     public class MyItemType
     {
