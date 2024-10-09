@@ -1,5 +1,6 @@
 ﻿@page "/"
 
+@using ISDSupportLogsManager.Shared.Model
 @using Radzen
 @using Radzen.Blazor
 @using System.Globalization
@@ -31,26 +32,110 @@
 
 @if (isFormVisible)
 {
-    <div class="form-overlay">
-        <div class="form-container">
+    <div class="modal-overlay" @onclick="HideForm">
+        <div class="modal-container" @onclick:stopPropagation="true">
             <form>
                 <RadzenSteps Change=@OnChange @rendermode="RenderMode.InteractiveServer">
                     <Steps>
                         <RadzenStepsItem Text="Where">
-                            <RadzenLabel Text="Select Value" Component="DropDownDataGridBindValue" />
-                            <RadzenDropDownDataGrid @bind-Value=@SupportHolder.Section Data=@Sections  Name="DropDownDataGridBindValue"
-                                                    TextProperty="@("Name")" />
+                            <div class="form-container">
+                                <div class="form-group">
+                                    <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenDropDownDataGrid @bind-Value=@Support.Shift Data=@Shifts Name="DropDownDataGridBindValue"
+                                                            TextProperty="@("Name")" class="dropdown" />
+                                </div>
+                                <div class="form-group">
+                                    <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenDropDownDataGrid @bind-Value=@Support.Biz Data=@Bizs Name="DropDownDataGridBindValue"
+                                                            TextProperty="@("Name")" class="dropdown" />
+                                </div>
+                                <div class="form-group">
+                                    <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenDropDownDataGrid @bind-Value=@Support.Department Data=@Departments Name="DropDownDataGridBindValue"
+                                                            TextProperty="@("Name")" class="dropdown" />
+                                </div>
+                            </div>
                             <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
                         <RadzenStepsItem Text="When">
+                            <div class="form-container">
+                                <div class="form-group">
+                                    <RadzenLabel Text="Start Date" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenDatePicker @bind-Value=@Support.StartDate class="datepicker" />
+                                    <RadzenDatePicker @bind-Value=@Support.StartTime ShowSeconds="true" DateFormat="HH:mm" Name="DatePickerTimeOnlyType" class="timepicker" />
+                                </div>
+                                <div class="form-group">
+                                    <RadzenLabel Text="End Date" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenDatePicker @bind-Value=@Support.EndDate class="datepicker" />
+                                    <RadzenDatePicker @bind-Value=@Support.EndTime ShowSeconds="true" DateFormat="HH:mm" Name="DatePickerTimeOnlyType" class="timepicker" />
+                                </div>
+                            </div>
                             <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
-                        <RadzenStepsItem Text="Why">
+                        <RadzenStepsItem Text="What">
+                            <div class="form-container">
+                                <div class="form-group">
+                                    <RadzenLabel Text="Category" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenDropDownDataGrid @bind-Value=@Support.Category Data=@Categorys Name="DropDownDataGridBindValue"
+                                                            TextProperty="@("Name")" class="dropdown" />
+                                </div>
+                                <div class="form-group">
+                                    <RadzenLabel Text="Details" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenTextArea @bind-Value=@Support.Details Style="width: 100%" aria-label="TextArea" />
+                                </div>
+                                <div class="form-group">
+                                    <RadzenLabel Text="Cause" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                    <RadzenTextArea @bind-Value=@Support.Cause Style="width: 100%" aria-label="TextArea" />
+                                </div>
+                            </div>
                             <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
                         <RadzenStepsItem Text="How">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="form-group">
+                                <RadzenLabel Text="Action Taken" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextArea @bind-Value=@Support.ActionTaken Style="width: 100%" aria-label="TextArea" />
+                            </div>
                             <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                        </RadzenStepsItem>
+                        <RadzenStepsItem Text="Summary">
+                            <div class="form-group">
+                                <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Shift.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Biz.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Department.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Shift.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Biz.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Department.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Shift.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Biz.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <div class="form-group">
+                                <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
+                                <RadzenTextBox Value=@Support.Department.Name ReadOnly="true" class="dropdown" />
+                            </div>
+                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
                         </RadzenStepsItem>
                     </Steps>
                 </RadzenSteps>
@@ -205,75 +290,6 @@
 
 @code {
 
-    public class Section
-    {
-        public int SectionId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-
-    public class Shift
-    {
-        public int ShiftId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-    public class Biz
-    {
-        public int BizId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-
-    public class Department
-    {
-        public int DepartmentId { get; set; }
-        public int BizId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-
-    public class Scope
-    {
-        public int ScopeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-
-    public class Category
-    {
-        public int CategoryId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-
-    public class User
-    {
-        public int UserId { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string EmailAddress { get; set; } = string.Empty;
-    }
-
-    public class Support
-    {
-        public Section Section { get; set; } = new Section();
-        public Shift Shift { get; set; } = new Shift();
-        public Biz Biz { get; set; } = new Biz();
-        public Department Department { get; set; } = new Department();
-        public Scope Scope { get; set; } = new Scope();
-        public Category Category { get; set; } = new Category();
-        public User User { get; set; } = new User();
-
-        public string SectionValue => Section.Name;
-        public string ShiftValue => Shift.Name;
-        public string BizValue => Biz.Name;
-        public string DepartmentValue => Department.Name;
-        public string ScopeValue => Scope.Name;
-        public string CategoryValue => Category.Name;
-        public string UserValue => $"{User.FirstName} {User.LastName}";
-    }
-
     public List<Section> Sections { get; set; } = new List<Section>();
     public List<Shift> Shifts { get; set; } = new List<Shift>();
     public List<Biz> Bizs { get; set; } = new List<Biz>();
@@ -282,7 +298,7 @@
     public List<Category> Categorys { get; set; } = new List<Category>();
     public List<User> Users { get; set; } = new List<User>();
 
-    public Support SupportHolder { get; set; } = new Support();
+    public Support Support { get; set; } = new Support();
 
     void OnChange(int index)
     {

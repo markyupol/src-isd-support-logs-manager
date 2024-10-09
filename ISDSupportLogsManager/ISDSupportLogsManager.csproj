@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ISDSupportLogsManager.Client\ISDSupportLogsManager.Client.csproj" />
+    <ProjectReference Include="..\ISDSupportLogsManager.Shared\ISDSupportLogsManager.Shared.csproj" />
   </ItemGroup>
 
 </Project>
