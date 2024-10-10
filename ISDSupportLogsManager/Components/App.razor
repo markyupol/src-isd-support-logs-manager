@@ -68,14 +68,14 @@
             max-width: 600px;
             height: auto;
             z-index: 1001;
-            overflow: auto;
         }
 
         .form-container {
-            display: flex;
-            flex-direction: column;
-            align-content: center;
+            max-height: 60vh; /* Set maximum height for the form content */
+            overflow-y: auto; /* Enable vertical scrolling when content overflows */
+            overflow: auto;
         }
+
 
         .form-group {
             max-height: 80vh; /* Set maximum height to 80% of the viewport height */

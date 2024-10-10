@@ -55,7 +55,6 @@
                                                             TextProperty="@("Name")" class="dropdown" />
                                 </div>
                             </div>
-                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
                         <RadzenStepsItem Text="When">
                             <div class="form-container">
@@ -70,7 +69,6 @@
                                     <RadzenDatePicker @bind-Value=@Support.EndTime ShowSeconds="true" DateFormat="HH:mm" Name="DatePickerTimeOnlyType" class="timepicker" />
                                 </div>
                             </div>
-                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
                         <RadzenStepsItem Text="What">
                             <div class="form-container">
@@ -88,54 +86,67 @@
                                     <RadzenTextArea @bind-Value=@Support.Cause Style="width: 100%" aria-label="TextArea" />
                                 </div>
                             </div>
-                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
                         <RadzenStepsItem Text="How">
                             <div class="form-group">
                                 <RadzenLabel Text="Action Taken" Component="DropDownDataGridBindValue" class="dropdown-label" />
                                 <RadzenTextArea @bind-Value=@Support.ActionTaken Style="width: 100%" aria-label="TextArea" />
                             </div>
-                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
                         </RadzenStepsItem>
                         <RadzenStepsItem Text="Summary">
-                            <div class="form-group">
-                                <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Shift.Name ReadOnly="true" class="dropdown" />
+                            <div class="form-container">
+                                <div class="rz-p-0 rz-p-md-0">
+                                    <RadzenCard class="rz-shadow-0 rz-border-radius-0 rz-p-4">
+                                        <RadzenText TextStyle="TextStyle.H6"><strong>Review Information</strong></RadzenText>
+                                        <RadzenRow RowGap="0">
+                                            <RadzenColumn SizeSM="6">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Section" class="rz-display-flex rz-mt-2 rz-my-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=Value></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Business Area" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.Biz.Name></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="6">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Shift" class="rz-display-flex rz-mt-2 rz-my-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.Shift.Name></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Department" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.Department.Name></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="6">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Start Date and Time" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.StartDateTime.ToString()></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="6">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="End Date and Time" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.EndDateTime.ToString()></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="6">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Elapsed Minutes" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.ElapsedMinutes.ToString()></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="6">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Category" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.Category.Name></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="12">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Details" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.Details></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="12">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Cause" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.Cause></RadzenText>
+                                            </RadzenColumn>
+                                            <RadzenColumn SizeSM="12">
+                                                <RadzenText TextStyle="TextStyle.Overline" Text="Action Taken" class="rz-display-flex rz-mt-2 rz-mb-0"></RadzenText>
+                                                <RadzenText TextStyle="TextStyle.Body1" Text=@Support.ActionTaken></RadzenText>
+                                            </RadzenColumn>
+                                        </RadzenRow>
+                                    </RadzenCard>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Biz.Name ReadOnly="true" class="dropdown" />
+                            <div class="button-container" style="display: flex; justify-content: space-between;">
+                                <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                             </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Department.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Shift.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Biz.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Department.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Shift" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Shift.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Business Area" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Biz.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <div class="form-group">
-                                <RadzenLabel Text="Department" Component="DropDownDataGridBindValue" class="dropdown-label" />
-                                <RadzenTextBox Value=@Support.Department.Name ReadOnly="true" class="dropdown" />
-                            </div>
-                            <button type="button" @onclick="HideForm" class="btn btn-danger">Cancel</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
                         </RadzenStepsItem>
                     </Steps>
                 </RadzenSteps>

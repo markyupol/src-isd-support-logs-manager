@@ -28,6 +28,18 @@ namespace ISDSupportLogsManager.Shared.Model
         public TimeOnly StartTime { get; set; }
         public DateOnly EndDate { get; set; }
         public TimeOnly EndTime { get; set; }
+        public int ElapsedMinutes
+        {
+            get
+            {
+                DateTime startDateTime = StartDate.ToDateTime(StartTime);
+                DateTime endDateTime = EndDate.ToDateTime(EndTime);
+
+                TimeSpan elapsed = endDateTime - startDateTime;
+
+                return (int)elapsed.TotalMinutes;
+            }
+        }
 
         public DateTime StartDateTime => StartDate.ToDateTime(StartTime);
         public DateTime EndDateTime => StartDate.ToDateTime(EndTime);
