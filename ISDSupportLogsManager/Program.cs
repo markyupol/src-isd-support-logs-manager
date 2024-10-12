@@ -43,6 +43,4 @@ app.MapRazorComponents<App>()
 	 .AddInteractiveWebAssemblyRenderMode()
 	 .AddAdditionalAssemblies(typeof(ISDSupportLogsManager.Client._Imports).Assembly); ;
 
-//app.MapGet("/api/employee", async (ISupportDataService supportDataService) => await supportDataService.GetAllEmployees());
-
 app.Run();
