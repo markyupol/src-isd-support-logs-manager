@@ -1,5 +1,5 @@
-﻿using ISDSupportLogsManager.Client.Contracts.Services;
-using ISDSupportLogsManager.Contracts.Repositories;
+﻿using ISDSupportLogsManager.Contracts.Repositories;
+using ISDSupportLogsManager.Contracts.Services;
 
 namespace ISDSupportLogsManager.Services
 {

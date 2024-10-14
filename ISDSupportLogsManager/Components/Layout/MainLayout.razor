@@ -14,18 +14,49 @@
                 </a>
             </div>
             <!-- Title -->
-            <div class="d-flex flex-column align-items-center flex-grow-1">
-                <div class="d-flex align-items-center">
-                    <img src="https://img.icons8.com/color/48/drawer.png" alt="Icon" style="width: 30px; height: 30px;" class="me-2">
-                    <div class="d-flex flex-column align-items-start">
-                        <span class="navbar-brand mb-0 h6" style="font-size: 1rem; line-height: 1; margin-top: 0; padding-top: 0;">
-                            TPC Support Logs
-                        </span>
-                        <div class="badge bg-success text-light rounded-pill" style="padding: 3px 10px; font-size: 0.5rem; margin-top: 0;">
-                            Version 1.0.0.0 - LIVE
+            <div class="dropdown d-flex justify-content-center" style="margin: 0;">
+                <button class="btn dropdown-toggle custom-dropdown-btn" type="button" id="customDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- Title -->
+                    <div class="d-flex flex-column align-items-center flex-grow-1">
+                        <div class="d-flex align-items-center">
+                            <img src="https://img.icons8.com/color/48/drawer.png" alt="Icon" style="width: 30px; height: 30px;" class="me-2">
+                            <div class="d-flex flex-column align-items-start">
+                                <span class="navbar-brand mb-0 h6" style="font-size: 1rem; line-height: 1; margin-top: 0; padding-top: 0;">
+                                    TPC Support Logs
+                                </span>
+                                <div class="badge bg-success text-light rounded-pill" style="padding: 3px 10px; font-size: 0.5rem; margin-top: 0;">
+                                    Version 1.0.0.0 - LIVE
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <!-- Dropdown Arrow -->
+                    <span class="ms-2">
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </button>
+                <ul class="dropdown-menu shadow-lg" aria-labelledby="customDropdown" style="left: 50%; transform: translateX(-50%); background-color: white; border: none; padding-top: 10px; margin-top: 5px; width: 250px;">
+                    <!-- Group Label -->
+                    <li class="dropdown-header">Group 1</li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <i class="bi bi-person-fill me-2"></i> Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <i class="bi bi-gear-fill me-2"></i> Settings
+                        </a>
+                    </li>
+
+                    <!-- Group Label -->
+                    <li class="dropdown-header">Group 2</li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <i class="bi bi-box-arrow-right me-2"></i> Logout
+                        </a>
+                    </li>
+                </ul>
             </div>
             <!-- Profile -->
             <div class="d-flex align-items-center ms-3">

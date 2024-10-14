@@ -12,11 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ISDSupportLogsManager.Client\ISDSupportLogsManager.Client.csproj" />
     <ProjectReference Include="..\ISDSupportLogsManager.Shared\ISDSupportLogsManager.Shared.csproj" />
   </ItemGroup>
 

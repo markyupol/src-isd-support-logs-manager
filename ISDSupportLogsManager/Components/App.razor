@@ -12,6 +12,50 @@
     <link href="css/site.css" rel="stylesheet" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <style>
+        /* Hover and Active States for Dropdown Button */
+        .custom-dropdown-btn {
+            border: none;
+            background-color: white;
+            display: flex;
+            align-items: center;
+        }
+
+            .custom-dropdown-btn:hover,
+            .custom-dropdown-btn:focus,
+            .custom-dropdown-btn:active {
+                background-color: #f0f0f0 !important;
+                border: none;
+            }
+
+        /* Dropdown Menu Customization */
+        .dropdown-menu {
+            padding-top: 10px; /* Padding on top of dropdown items */
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+            border-radius: 0.25rem; /* Slightly rounded corners */
+            margin-top: 5px; /* Margin on top of dropdown items panel */
+            width: 250px; /* Increased width of the dropdown items pane */
+        }
+
+        /* Dropdown Items */
+        .dropdown-item {
+            padding: 8px 16px; /* Add some padding for comfort */
+        }
+
+            /* Hover Effect on Dropdown Items */
+            .dropdown-item:hover,
+            .dropdown-item:focus {
+                background-color: #f0f0f0;
+            }
+
+        /* Dropdown Group Labels */
+        .dropdown-header {
+            font-size: 0.875rem;
+            font-weight: bold;
+            color: #6c757d;
+            margin-top: 5px;
+            padding: 5px 15px;
+        }
 
         .flexible {
             background: linear-gradient(45deg, #003366, #00008b);
