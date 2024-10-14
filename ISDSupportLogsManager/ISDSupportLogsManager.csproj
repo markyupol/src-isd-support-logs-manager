@@ -15,4 +15,8 @@
     <ProjectReference Include="..\ISDSupportLogsManager.Shared\ISDSupportLogsManager.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\icons\" />
+  </ItemGroup>
+
 </Project>
