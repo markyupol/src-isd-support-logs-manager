@@ -11,21 +11,22 @@
         <button class="square rounded-square border-0">
             <img src="https://img.icons8.com/emoji/48/card-file-box-emoji.png" alt="Icon 1" class="icon">
         </button>
-
         <!-- Flexible div -->
         <div class="flexible rounded-square d-flex justify-content-between align-items-center px-2">
             <div class="p-2" style="margin: 0; color: white; font-weight: bold;">Infrastructure</div>
             <div class="p-2" style="margin: 0; color: white; font-weight: normal; font-size: 0.9rem;">150 logs</div>
         </div>
-
         <!-- Third square with icon -->
         <button class="square-small rounded-square" style="border: none; cursor: pointer;" @onclick="ShowForm">
-            <img src="https://img.icons8.com/fluency/48/add--v1.png" alt="Icon 3" class="icon">
+            <img src="https://img.icons8.com/?size=100&id=JGe51z9QiUjz&format=png&color=000000" alt="Icon 3" class="icon">
         </button>
-
+        <!-- Third square with icon -->
+        <button class="square-small rounded-square" style="border: none; cursor: pointer;" @onclick="ShowForm">
+            <img src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Icon 3" class="icon">
+        </button>
         <!-- Fourth square with icon -->
         <div class="square-small rounded-square">
-            <img src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Icon 4" class="icon">
+            <img src="https://img.icons8.com/?size=100&id=102557&format=png&color=000000" alt="Icon 4" class="icon">
         </div>
     </div>
 </div>
@@ -159,7 +160,6 @@
 
     protected override void OnInitialized()
     {
-        // Initialize your data here
         data = new List<MyItemType>
         {
             new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
