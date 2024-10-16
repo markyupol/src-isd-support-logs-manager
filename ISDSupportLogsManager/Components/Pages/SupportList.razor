@@ -164,21 +164,14 @@
         {
             new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
             new MyItemType { Id = 2, Name = "Item 2", Description = "Description 2" },
-            new MyItemType { Id = 3, Name = "Item 3", Description = "Description 3" },
-            new MyItemType { Id = 4, Name = "Item 4", Description = "Description 4" },
-            new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
-            new MyItemType { Id = 2, Name = "Item 2", Description = "Description 2" },
-            new MyItemType { Id = 3, Name = "Item 3", Description = "Description 3" },
-            new MyItemType { Id = 4, Name = "Item 4", Description = "Description 4" },
-            new MyItemType { Id = 1, Name = "Item 1", Description = "Description 1" },
+            new MyItemType { Id = 3, Name = "Item 3", Description = "Description 3" }
         };
 
         Sections = new List<Section>()
         {
-         new Section { SectionId = 0, Name = "INFRA", Description = "Infrastructure" },
-         new Section { SectionId = 0, Name = "ERPS", Description = "SAP Systems" },
-         new Section { SectionId = 0, Name = "NON PROD", Description = "Admin and HR" },
-         new Section { SectionId = 0, Name = "PROD", Description = "Manufacturing" }
+            new Section { SectionId = 0, Name = "INFRA", Description = "Infrastructure" },
+            new Section { SectionId = 0, Name = "ERPS", Description = "SAP Systems" },
+            new Section { SectionId = 0, Name = "NON PROD", Description = "Admin and HR" }
         };
 
         Shifts = new List<Shift>()
@@ -196,35 +189,14 @@
         {
            new Biz { BizId = 1, Name = "BMS", Description = "" },
             new Biz { BizId = 2, Name = "Corp.Admin", Description = "" },
-            new Biz { BizId = 3, Name = "Corp. Engg", Description = "" },
-            new Biz { BizId = 4, Name = "External", Description = "" },
-            new Biz { BizId = 5, Name = "Finance and Accounting", Description = "" },
-            new Biz { BizId = 6, Name = "HEADS GRP (H1)", Description = "" },
-            new Biz { BizId = 7, Name = "MAG GRP (L2)", Description = "" },
-            new Biz { BizId = 8, Name = "MAS GRP (N3)", Description = "" },
-            new Biz { BizId = 9, Name = "RE/MSL", Description = "" }
+            new Biz { BizId = 3, Name = "Corp. Engg", Description = "" }
         };
 
         Departments = new List<Department>()
         {
             new Department { BizId = 1, Name = "New Product", Description = "" },
             new Department { BizId = 2, Name = "CMA Ops", Description = "" },
-            new Department { BizId = 3, Name = "DCC", Description = "" },
-            new Department { BizId = 4, Name = "Design & Automation", Description = "" },
-            new Department { BizId = 5, Name = "Expat", Description = "" },
-            new Department { BizId = 6, Name = "EDLC", Description = "" },
-            new Department { BizId = 7, Name = "Facilities", Description = "" },
-            new Department { BizId = 8, Name = "Finance/Accounting", Description = "" },
-            new Department { BizId = 9, Name = "General Affairs", Description = "" },
-            new Department { BizId = 10, Name = "HGA Op", Description = "" },
-            new Department { BizId = 11, Name = "HRD/TTD", Description = "" },
-            new Department { BizId = 12, Name = "IND Op", Description = "" },
-            new Department { BizId = 13, Name = "ISD", Description = "" },
-            new Department { BizId = 14, Name = "RE/MSL", Description = "" },
-            new Department { BizId = 15, Name = "SCM", Description = "" },
-            new Department { BizId = 16, Name = "Safety/Security", Description = "" },
-            new Department { BizId = 17, Name = "TEP Sales", Description = "" },
-            new Department { BizId = 18, Name = "IHCS", Description = "" }
+            new Department { BizId = 3, Name = "DCC", Description = "" }
         };
 
         Scopes = new List<Scope>()
@@ -238,64 +210,220 @@
         {
             new Category { CategoryId = 1,  Name = "LTS-IND", Description = "" },
             new Category { CategoryId = 2,  Name = "LTS-CMA", Description = "" },
-            new Category { CategoryId = 3,  Name = "LTS-EDLC", Description = "" },
-            new Category { CategoryId = 4,  Name = "LTS-IND", Description = "" },
-            new Category { CategoryId = 5,  Name = "Attendance Production", Description = "" },
-            new Category { CategoryId = 6,  Name = "CAPEX Online", Description = "" },
-            new Category { CategoryId = 7,  Name = "Checksheet Online", Description = "" },
-            new Category { CategoryId = 8,  Name = "DOR Online", Description = "" },
-            new Category { CategoryId = 9,  Name = "ECN Online", Description = "" },
-            new Category { CategoryId = 10, Name = "EIS", Description = "" },
-            new Category { CategoryId = 11, Name = "FA Online", Description = "" },
-            new Category { CategoryId = 12, Name = "HR Terminal", Description = "" },
-            new Category { CategoryId = 13, Name = "Jigs and Fixture System", Description = "" },
-            new Category { CategoryId = 14, Name = "Machine Qual", Description = "" },
-            new Category { CategoryId = 15, Name = "OBT Online", Description = "" },
-            new Category { CategoryId = 16, Name = "OEE", Description = "" },
-            new Category { CategoryId = 17, Name = "OPEX Application", Description = "" },
-            new Category { CategoryId = 18, Name = "PNCM Online", Description = "" },
-            new Category { CategoryId = 19, Name = "Production Attendance", Description = "" },
-            new Category { CategoryId = 20, Name = "Shuttle Reservation", Description = "" },
-            new Category { CategoryId = 21, Name = "Synergy", Description = "" },
-            new Category { CategoryId = 22, Name = "TEPM Online", Description = "" },
-            new Category { CategoryId = 23, Name = "TPC Website", Description = "" },
-            new Category { CategoryId = 24, Name = "TTD Application", Description = "" },
-            new Category { CategoryId = 25, Name = "TTD Online", Description = "" },
-            new Category { CategoryId = 26, Name = "Workstation Docs", Description = "" },
-            new Category { CategoryId = 27, Name = "MSL Online", Description = "" },
-            new Category { CategoryId = 28, Name = "DCC Online", Description = "" },
-            new Category { CategoryId = 29, Name = "Auto Yield Report", Description = "" },
-            new Category { CategoryId = 30, Name = "Manhrs Online", Description = "" },
-            new Category { CategoryId = 31, Name = "CSO Online", Description = "" },
-            new Category { CategoryId = 32, Name = "GRR Online", Description = "" },
-            new Category { CategoryId = 33, Name = "PA Online", Description = "" },
-            new Category { CategoryId = 34, Name = "Material Online", Description = "" },
-            new Category { CategoryId = 35, Name = "OPEX Budget", Description = "" },
-            new Category { CategoryId = 36, Name = "Clinic Online", Description = "" },
-            new Category { CategoryId = 37, Name = "eHR", Description = "" },
-            new Category { CategoryId = 38, Name = "TTD Application", Description = "" },
-            new Category { CategoryId = 39, Name = "Fixed Asset Online", Description = "" },
-            new Category { CategoryId = 40, Name = "Machine Shop Online", Description = "" },
-            new Category { CategoryId = 41, Name = "Document Request Online", Description = "" },
-            new Category { CategoryId = 42, Name = "HGA DATA TRANSFER", Description = "" },
-            new Category { CategoryId = 43, Name = "HGA-LTS", Description = "" },
-            new Category { CategoryId = 44, Name = "MRF ONLINE", Description = "" },
-            new Category { CategoryId = 45, Name = "E-Learning", Description = "" },
-            new Category { CategoryId = 46, Name = "TABLEAU", Description = "" },
-            new Category { CategoryId = 47, Name = "Change Point Application", Description = "" },
-            new Category { CategoryId = 48, Name = "GLAD", Description = "" },
-            new Category { CategoryId = 49, Name = "LEGACY SR ONLINE", Description = "" },
-            new Category { CategoryId = 50, Name = "ELECTRICAL YIELD", Description = "" },
-            new Category { CategoryId = 51, Name = "IMMS", Description = "" },
-            new Category { CategoryId = 52, Name = "TVDisplay", Description = "" },
-            new Category { CategoryId = 53, Name = "OOC ALARM", Description = "" },
-            new Category { CategoryId = 54, Name = "SAE SYSTEMS", Description = "" }
+            new Category { CategoryId = 3,  Name = "LTS-EDLC", Description = "" }
         };
 
         Users = new List<User>()
         {
             new User { UserId = 1023712, FirstName = "Marq Paul", LastName = "Gonzales", EmailAddress = "marq.gonzales@tdk.com" }
         };
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "001",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 1,
+                   CategoryName = "Incident",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/19/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/19/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "002",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 1,
+                   CategoryName = "Request",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/19/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/19/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "003",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 2,
+                   CategoryName = "Incident",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/18/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/18/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "004",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 1,
+                   CategoryName = "Request",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/18/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/18/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "005",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 2,
+                   CategoryName = "Incident",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/16/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/16/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "006",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "CMA Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 1,
+                   CategoryName = "Request",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/16/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/16/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "007",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 2,
+                   CategoryName = "Incident",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/14/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/14/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+           new SupportLookup()
+               {
+                   ControlNo = "008",
+                   SectionName = "Manufacturing",
+                   ShiftName = "L4",
+                   BizName = "MAG-N3",
+                   DepartmentName = "IND Operations",
+                   ScopeName = "LTS",
+                   CategoryId = 1,
+                   CategoryName = "Request",
+                   UserFirstName = "Juan",
+                   UserLastName = "Mayor",
+                   StartDate = DateOnly.Parse("10/14/2024"),
+                   StartTime = TimeOnly.Parse("01:00:00 PM"),
+                   EndDate = DateOnly.Parse("10/14/2024"),
+                   EndTime = TimeOnly.Parse("02:00:00 PM"),
+                   Details = "Deployment of Travellers",
+                   Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
+                   ActionTaken = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+               });
+
+        SupportLookups.Add(
+         new SupportLookup()
+             {
+                 CategoryId = (from x in SupportLookups select x.CategoryId).Min() - 1,
+                 CategoryName = "",
+                 StartDate = (from x in SupportLookups select x.StartDate).Min(),
+                 StartTime = TimeOnly.Parse("01:00:00 PM"),
+                 EndDate = (from x in SupportLookups select x.StartDate).Max(),
+                 EndTime = TimeOnly.Parse("02:00:00 PM"),
+             }
+        );
+
+        SupportLookups.Add(
+         new SupportLookup()
+             {
+                 CategoryId = (from x in SupportLookups select x.CategoryId).Min() + 1,
+                 StartDate = (from x in SupportLookups select x.StartDate).Min(),
+                 StartTime = TimeOnly.Parse("01:00:00 PM"),
+                 EndDate = (from x in SupportLookups select x.StartDate).Max(),
+                 EndTime = TimeOnly.Parse("02:00:00 PM"),
+             }
+        );
+
+        IncidentSupportLookups = (from x in SupportLookups
+                                  where x.CategoryName == "Incident"
+                                  select x).ToList();
+
+        RequestSupportLookups = (from x in SupportLookups
+                                 where x.CategoryName == "Request"
+                                 select x).ToList();
     }
 }
 
@@ -310,6 +438,10 @@
     public List<User> Users { get; set; } = new List<User>();
 
     public Support Support { get; set; } = new Support();
+    public List<SupportLookup> SupportLookups { get; set; } = new List<SupportLookup>();
+    public List<SupportLookup> IncidentSupportLookups { get; set; } = new List<SupportLookup>();
+    public List<SupportLookup> RequestSupportLookups { get; set; } = new List<SupportLookup>();
+    public SupportLookup SupportLookup { get; set; } = new SupportLookup();
 
     void OnChange(int index)
     {
@@ -331,14 +463,23 @@
     }
 }
 
-<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="6" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
-                Data="@data" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single" Style="margin-top: 15px; border-radius: 10px;">
-    <Columns>
-        <RadzenDataGridColumn TItem="MyItemType" Property="Id" Title="ID" Filterable="false" Frozen="true" Width="25px" TextAlign="TextAlign.Center" />
-        <RadzenDataGridColumn TItem="MyItemType" Property="Name" Title="Name" Frozen="true" Width="100px" />
-        <RadzenDataGridColumn TItem="MyItemType" Property="Description" Title="Description" />
-    </Columns>
-</RadzenDataGrid>
+<div class="container pl-0 pr-0 pb-3">
+    <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="true" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="7" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                    Data="@SupportLookups" LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single" Style="margin-top: 15px; border-radius: 10px; ">
+        <Columns>
+            <RadzenDataGridColumn TItem="SupportLookup" Property="ControlNo" Title="ID" Filterable="false" Frozen="true" Width="100px" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="CategoryName" Title="Category" Frozen="true" Width="140px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="Details" Title="Details" Width="300px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="BizName" Title="Business" Width="150px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="ShiftName" Title="Shift" Width="120px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="DepartmentName" Title="Department" Width="180px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="ScopeName" Title="Scope" Width="130px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="StartDateTime" Title="Start" Width="170px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="EndDateTime" Title="End" Width="170px" />
+            <RadzenDataGridColumn TItem="SupportLookup" Property="UserFullName" Title="Posted By" Width="150px" />
+        </Columns>
+    </RadzenDataGrid>
+</div>
 
 @code {
     private List<MyItemType> data;
@@ -351,7 +492,8 @@
     }
 }
 
-<RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
+<RadzenStack class="rz-p-0 rz-p-md-1 rz-p-lg-1">
+
     <RadzenCard Variant="Variant.Outlined">
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap">
             <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
@@ -366,16 +508,16 @@
     </RadzenCard>
 
     <RadzenChart>
-        <RadzenAreaSeries Smooth="@smooth" Data="@revenue2023" CategoryProperty="Date" Title="2023" ValueProperty="Revenue" RenderingOrder="1">
+        <RadzenAreaSeries Smooth="@smooth" Data="@IncidentSupportLookups" CategoryProperty="StartDateTime" Title="Incident" ValueProperty="CategoryId" RenderingOrder="1">
             <RadzenSeriesDataLabels Visible="@showDataLabels" />
         </RadzenAreaSeries>
-        <RadzenAreaSeries Smooth="@smooth" Data="@revenue2024" CategoryProperty="Date" Title="2024" LineType="LineType.Dashed" ValueProperty="Revenue">
+        <RadzenAreaSeries Smooth="@smooth" Data="@RequestSupportLookups" CategoryProperty="StartDateTime" Title="Request" LineType="LineType.Dashed" ValueProperty="CategoryId">
             <RadzenSeriesDataLabels Visible="@showDataLabels" />
         </RadzenAreaSeries>
         <RadzenCategoryAxis Padding="20" />
-        <RadzenValueAxis Formatter="@FormatAsUSD">
+        <RadzenValueAxis>
             <RadzenGridLines Visible="true" />
-            <RadzenAxisTitle Text="Revenue in USD" />
+            <RadzenAxisTitle Text="Categories" />
         </RadzenValueAxis>
     </RadzenChart>
 </RadzenStack>
@@ -383,140 +525,9 @@
 @code {
     bool smooth = true;
     bool showDataLabels = false;
-    class DataItem
-    {
-        public string Date { get; set; }
-        public double Revenue { get; set; }
-    }
 
     string FormatAsUSD(object value)
     {
         return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
     }
-
-    DataItem[] revenue2023 = new DataItem[] {
-        new DataItem
-        {
-            Date = "Jan",
-            Revenue = 234000
-        },
-        new DataItem
-        {
-            Date = "Feb",
-            Revenue = 269000
-        },
-        new DataItem
-        {
-            Date = "Mar",
-            Revenue = 233000
-        },
-        new DataItem
-        {
-            Date = "Apr",
-            Revenue = 244000
-        },
-        new DataItem
-        {
-            Date = "May",
-            Revenue = 214000
-        },
-        new DataItem
-        {
-            Date = "Jun",
-            Revenue = 253000
-        },
-        new DataItem
-        {
-            Date = "Jul",
-            Revenue = 274000
-        },
-        new DataItem
-        {
-            Date = "Aug",
-            Revenue = 284000
-        },
-        new DataItem
-        {
-            Date = "Sept",
-            Revenue = 273000
-        },
-        new DataItem
-        {
-            Date = "Oct",
-            Revenue = 282000
-        },
-        new DataItem
-        {
-            Date = "Nov",
-            Revenue = 289000
-        },
-        new DataItem
-        {
-            Date = "Dec",
-            Revenue = 294000
-        }
-    };
-
-    DataItem[] revenue2024 = new DataItem[] {
-        new DataItem
-        {
-            Date = "Jan",
-            Revenue = 334000
-        },
-        new DataItem
-        {
-            Date = "Feb",
-            Revenue = 369000
-        },
-        new DataItem
-        {
-            Date = "Mar",
-            Revenue = 333000
-        },
-        new DataItem
-        {
-            Date = "Apr",
-            Revenue = 344000
-        },
-        new DataItem
-        {
-            Date = "May",
-            Revenue = 314000
-        },
-        new DataItem
-        {
-            Date = "Jun",
-            Revenue = 353000
-        },
-        new DataItem
-        {
-            Date = "Jul",
-            Revenue = 374000
-        },
-        new DataItem
-        {
-            Date = "Aug",
-            Revenue = 384000
-        },
-        new DataItem
-        {
-            Date = "Sept",
-            Revenue = 373000
-        },
-        new DataItem
-        {
-            Date = "Oct",
-            Revenue = 382000
-        },
-        new DataItem
-        {
-            Date = "Nov",
-            Revenue = 389000
-        },
-        new DataItem
-        {
-            Date = "Dec",
-            Revenue = 394000
-        }
-    };
 }
