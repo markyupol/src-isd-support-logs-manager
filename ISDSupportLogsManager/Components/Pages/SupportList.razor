@@ -426,7 +426,22 @@
                                  where x.CategoryName == "Request"
                                  select x).ToList();
 
-        CategoryPerDay = from 
+        CategoryPerMonth = SupportLookups.GroupBy(i => new[] { i.StartMonth, i.CategoryId })
+                                         .Select(g => new CategoryPerMonthReport()
+                                         {
+                                             Month = g.Key.M
+
+                                         })
+
+                                         Support
+
+    items
+    .GroupBy(i => i.Category)
+    .Select(g => new
+    {
+    Category = g.Key,
+    Count = g.Count()
+    });
     }
 }
 
@@ -445,7 +460,7 @@
     public List<SupportLookup> IncidentSupportLookups { get; set; } = new List<SupportLookup>();
     public List<SupportLookup> RequestSupportLookups { get; set; } = new List<SupportLookup>();
     public SupportLookup SupportLookup { get; set; } = new SupportLookup();
-    public List<CategoryPerDayReport> CategoryPerDay { get; set; } = new List<CategoryPerDayReport>();
+    public List<CategoryPerMonthReport> CategoryPerMonth { get; set; } = new List<CategoryPerMonthReport>();
 
     void OnChange(int index)
     {

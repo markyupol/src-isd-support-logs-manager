@@ -37,6 +37,8 @@ namespace ISDSupportLogsManager.Shared.Model
         public DateTime StartDateTime => StartDate.ToDateTime(StartTime);
         public DateTime EndDateTime => StartDate.ToDateTime(EndTime);
 
+        public string StartMonth => StartDate.Month.ToString();
+
         public string Details { get; set; } = string.Empty;
         public string Cause { get; set; } = string.Empty;
         public string ActionTaken { get; set; } = string.Empty;

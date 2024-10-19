@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ISDSupportLogsManager.Shared.Model.Reports
 {
-    public class CategoryPerDayReport
+    public class CategoryPerMonthReport
     {
-        public DateTime Day { get; set; }
+        public string Month { get; set; } = string.Empty;
         public string Category { get; set; } = string.Empty;
         public int Count { get; set; }
     }
