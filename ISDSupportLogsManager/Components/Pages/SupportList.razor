@@ -1,6 +1,7 @@
 ﻿@page "/"
 
 @using ISDSupportLogsManager.Shared.Model
+@using ISDSupportLogsManager.Shared.Model.Reports
 @using Radzen
 @using Radzen.Blazor
 @using System.Globalization
@@ -424,6 +425,8 @@
         RequestSupportLookups = (from x in SupportLookups
                                  where x.CategoryName == "Request"
                                  select x).ToList();
+
+        CategoryPerDay = from 
     }
 }
 
@@ -442,6 +445,7 @@
     public List<SupportLookup> IncidentSupportLookups { get; set; } = new List<SupportLookup>();
     public List<SupportLookup> RequestSupportLookups { get; set; } = new List<SupportLookup>();
     public SupportLookup SupportLookup { get; set; } = new SupportLookup();
+    public List<CategoryPerDayReport> CategoryPerDay { get; set; } = new List<CategoryPerDayReport>();
 
     void OnChange(int index)
     {
@@ -506,6 +510,17 @@
             </RadzenStack>
         </RadzenStack>
     </RadzenCard>
+
+    <RadzenChart>
+        <RadzenColumnSeries Data="@IncidentSupportLookups" CategoryProperty="Quarter" Title="2024" LineType="LineType.Dashed" ValueProperty="Revenue">
+            <RadzenSeriesDataLabels Visible="@showDataLabels" />
+        </RadzenColumnSeries>
+        <RadzenColumnOptions Radius="5" />
+        <RadzenValueAxis>
+            <RadzenGridLines Visible="true" />
+            <RadzenAxisTitle Text="Categories" />
+        </RadzenValueAxis>
+    </RadzenChart>
 
     <RadzenChart>
         <RadzenAreaSeries Smooth="@smooth" Data="@IncidentSupportLookups" CategoryProperty="StartDateTime" Title="Incident" ValueProperty="CategoryId" RenderingOrder="1">
