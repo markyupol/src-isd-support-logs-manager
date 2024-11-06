@@ -1,9 +1,10 @@
 ﻿@inherits LayoutComponentBase
 
-<RadzenComponents @rendermode="InteractiveAuto" />
+<RadzenComponents @rendermode="InteractiveAuto"/>
 
-<div class="container-fluid" style="padding: 0;">
-    <header class="navbar navbar-expand-lg bg-white border-bottom" style="margin: 0;">
+<div style="padding: 0;">
+    @* TOP HEADER *@
+    <header class="navbar navbar-expand-lg bg-white border-bottom" style="margin: 0; left: 0; right: 0;">
         <div class="container-fluid d-flex justify-content-between align-items-center" style="padding: 0;">
             <!-- List -->
             <div class="d-flex align-items-center ms-1">
@@ -91,203 +92,13 @@
             </div>
         </div>
     </header>
-    <div class="d-flex container-fluid" style="min-height: 100vh; padding: 0px;">
-        <!-- Left Sidebar -->
-        <div class="p-3" style="background-color: white; width: 220px; min-width: 220px;">
-            <nav>
-                <h6 class="pt-2" style="margin: 0px; padding: 0px 0px 0px 0px; color: #1E1E1E;">Date Range</h6>
-                <RadzenDatePicker class="pt-2" @bind-Value=@filterStartDate ShowTime="true" ShowSeconds="true" HoursStep="1.5" MinutesStep="5" SecondsStep="10" DateFormat="MM/dd/yyyy HH:mm" Name="DatePickerWithTime" />
-                <RadzenDatePicker class="pt-2" @bind-Value=@filterEndDate ShowTime="true" ShowSeconds="true" HoursStep="1.5" MinutesStep="5" SecondsStep="10" DateFormat="MM/dd/yyyy HH:mm" Name="DatePickerWithTime" />
-                <h6 class="pt-2" style="margin: 0px; padding: 0px 0px 0px 0px; color: #1E1E1E;">Section</h6>
-                <ul class="nav flex-column pb-2" style="list-style: none; margin: 0;">
-                    <li class="nav-link active d-flex align-items-center" href="#" style="text-decoration: none; color: #000;">
-                        <img src="https://img.icons8.com/3d-fluency/94/network-card.png" alt="Home Icon" class="me-2" style="height: 20px; width: 20px;">
-                        <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
-                            <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
-                                <div style="margin: 0; color: black; font-size: 0.9rem; font-weight: 400">Infrastructure</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-link active d-flex align-items-center" href="#" style="text-decoration: none; color: #000;">
-                        <img src="https://img.icons8.com/color/48/sap.png" alt="Home Icon" class="me-2" style="height: 20px; width: 20px;">
-                        <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
-                            <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
-                                <div style="margin: 0; color: black; font-size: 0.9rem; font-weight: 400">ERPS SAP</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-link active d-flex align-items-center" href="#" style="text-decoration: none; color: #000;">
-                        <img src="https://img.icons8.com/fluency/48/human-resources.png" alt="Home Icon" class="me-2" style="height: 20px; width: 20px;">
-                        <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
-                            <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
-                                <div style="margin: 0; color: black; font-size: 0.9rem; font-weight: 400">Infrastructure</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-link active d-flex align-items-center" href="#" style="text-decoration: none; color: #000;">
-                        <img src="https://img.icons8.com/fluency/48/deployment.png" alt="Home Icon" class="me-2" style="height: 20px; width: 20px;">
-                        <div class="d-flex flex-column" style="flex-grow: 1; padding: 0;">
-                            <div class="d-flex justify-content-between align-items-center" style="margin: 0;">
-                                <div style="margin: 0; color: black; font-size: 0.9rem; font-weight: 400">Manufacturing</div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <!-- Main Content -->
-        <div class="container-fluid" style="max-width: 100%; overflow-x: hidden;">
-            <main class="flex-grow-1 p-3" style="max-width: 100%;">
-                @Body
-            </main>
-        </div>
-        <!-- Right Sidebar -->
-        <div class="p-3" style="background-color: #44546A; width: 300px; min-width: 300px;">
-            <h6 style="color: white;">Detailed Information</h6>
-            <div class="card" style="padding: 0px; background-color: white; ">
-                <div class="card-body p-3">
-                    <table style="width: 100%; background-color: white; border-collapse: collapse;">
-                        <tr>
-                            <td style="padding: 0px;" colspan="2">
-                                <h4 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Deployment of Travellers
-                                </h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px 0px 10px 0px;" colspan="2">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E;">
-                                    August 12, 2024 08:00 AM
-                                </h6>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Elapsed Mins
-                                </h6>
-                            </td>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E; text-align: right;">
-                                    25
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Section
-                                </h6>
-                            </td>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E; text-align: right;">
-                                    Manufacturing
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Department
-                                </h6>
-                            </td>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E; text-align: right;">
-                                    Inductor Ops
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Shift
-                                </h6>
-                            </td>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E; text-align: right;">
-                                    L4
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    PIC
-                                </h6>
-                            </td>
-                            <td style="padding: 0px;">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E; text-align: right;">
-                                    Juan Dela Cruz 
-                                </h6>
-                            </td>
-                        </tr>
-
-                        <!-- Next 4 rows with 1 column -->
-                        <tr>
-                            <td style="padding: 0px;" colspan="2">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Cause
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;" colspan="2">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E;">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;" colspan="2">
-                                <h6 style="font-weight: 600; color: white; color: #1E1E1E;">
-                                    Action Taken
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;" colspan="2">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E;">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;" colspan="2">
-                                <h6 style="font-weight: 400; color: white; color: #1E1E1E;">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                </h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px;">
-                            </td>
-                            <td style="padding: 0px; text-align: right;">
-                                <button class="common-btn" style="background-color: #3497DA;">Duplicate</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0px; text-align: left;">
-                                <button class="common-btn" style="background-color: #E64D3D;">Delete</button>
-                            </td>
-                            <td style="padding: 0px; text-align: right;">
-                                <button class="common-btn" style="background-color: #3497DA;">Edit</button>
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            </div>
-        </div>
+    @* BODY *@
+    <div style="background-color: red; display: grid; grid-template-columns: 200px 1fr 200px; height:100vh;">
+        <div style="background-color: burlywood;">&nbsp;</div>
+        <div style="background-color: pink;"></div>
+        <div style="background-color: burlywood;"></div>
     </div>
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-        &copy; 2024 My Application - All Rights Reserved
-    </footer>
 </div>
-
 @code
 {
     public DateTime filterStartDate = DateTime.Now;

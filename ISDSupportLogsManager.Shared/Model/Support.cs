@@ -81,6 +81,8 @@ namespace ISDSupportLogsManager.Shared.Model
         public DateTime StartDateTime => StartDate.ToDateTime(StartTime);
         public DateTime EndDateTime => StartDate.ToDateTime(EndTime);
 
+        public string StartMonth => StartDate.Month.ToString();
+
         public string UserFullName => $"{UserFirstName} {UserLastName}";
     }
 }

@@ -202,16 +202,16 @@
 
         Scopes = new List<Scope>()
         {
-            new Scope { ScopeId = 1, Name = "Request", Description = "" },
-            new Scope { ScopeId = 2, Name = "Incident", Description = "" },
-            new Scope { ScopeId = 3, Name = "Others", Description = "" }
+            new Scope { ScopeId = 1, Name = "LTS-IND", Description = "" },
+            new Scope { ScopeId = 2, Name = "LTS-CMA", Description = "" },
+            new Scope { ScopeId = 3, Name = "LTS-EDLC", Description = "" }
         };
 
         Categorys = new List<Category>()
         {
-            new Category { CategoryId = 1,  Name = "LTS-IND", Description = "" },
-            new Category { CategoryId = 2,  Name = "LTS-CMA", Description = "" },
-            new Category { CategoryId = 3,  Name = "LTS-EDLC", Description = "" }
+            new Category { CategoryId = 1,  Name = "Request", Description = "" },
+            new Category { CategoryId = 2,  Name = "Incident", Description = "" },
+            new Category { CategoryId = 3,  Name = "Others", Description = "" }
         };
 
         Users = new List<User>()
@@ -254,9 +254,9 @@
                    CategoryName = "Request",
                    UserFirstName = "Juan",
                    UserLastName = "Mayor",
-                   StartDate = DateOnly.Parse("10/19/2024"),
+                   StartDate = DateOnly.Parse("08/19/2024"),
                    StartTime = TimeOnly.Parse("01:00:00 PM"),
-                   EndDate = DateOnly.Parse("10/19/2024"),
+                   EndDate = DateOnly.Parse("08/19/2024"),
                    EndTime = TimeOnly.Parse("02:00:00 PM"),
                    Details = "Deployment of Travellers",
                    Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -276,9 +276,9 @@
                    CategoryName = "Incident",
                    UserFirstName = "Juan",
                    UserLastName = "Mayor",
-                   StartDate = DateOnly.Parse("10/18/2024"),
+                   StartDate = DateOnly.Parse("08/18/2024"),
                    StartTime = TimeOnly.Parse("01:00:00 PM"),
-                   EndDate = DateOnly.Parse("10/18/2024"),
+                   EndDate = DateOnly.Parse("08/18/2024"),
                    EndTime = TimeOnly.Parse("02:00:00 PM"),
                    Details = "Deployment of Travellers",
                    Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -342,9 +342,9 @@
                    CategoryName = "Request",
                    UserFirstName = "Juan",
                    UserLastName = "Mayor",
-                   StartDate = DateOnly.Parse("10/16/2024"),
+                   StartDate = DateOnly.Parse("09/16/2024"),
                    StartTime = TimeOnly.Parse("01:00:00 PM"),
-                   EndDate = DateOnly.Parse("10/16/2024"),
+                   EndDate = DateOnly.Parse("09/16/2024"),
                    EndTime = TimeOnly.Parse("02:00:00 PM"),
                    Details = "Deployment of Travellers",
                    Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -386,9 +386,9 @@
                    CategoryName = "Request",
                    UserFirstName = "Juan",
                    UserLastName = "Mayor",
-                   StartDate = DateOnly.Parse("10/14/2024"),
+                   StartDate = DateOnly.Parse("09/14/2024"),
                    StartTime = TimeOnly.Parse("01:00:00 PM"),
-                   EndDate = DateOnly.Parse("10/14/2024"),
+                   EndDate = DateOnly.Parse("09/14/2024"),
                    EndTime = TimeOnly.Parse("02:00:00 PM"),
                    Details = "Deployment of Travellers",
                    Cause = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
@@ -418,30 +418,35 @@
              }
         );
 
-        IncidentSupportLookups = (from x in SupportLookups
-                                  where x.CategoryName == "Incident"
-                                  select x).ToList();
+        IncidentPerMonth = SupportLookups.Where(x => x.CategoryId == 2)
+                                    .GroupBy(i => new { i.StartDate, i.CategoryName })
+                                    .Select(g => new CategoryPerMonthReport()
+                                        {
+                                            StartDate = g.Key.StartDate,
+                                            Category = g.Key.CategoryName,
+                                            Count = g.Count()
+                                        })
+                                    .OrderBy(x => x.StartDate);
 
-        RequestSupportLookups = (from x in SupportLookups
-                                 where x.CategoryName == "Request"
-                                 select x).ToList();
+        RequestsPerMonth = SupportLookups.Where(x => x.CategoryId == 1)
+                                    .GroupBy(i => new { i.StartDate, i.CategoryName })
+                                    .Select(g => new CategoryPerMonthReport()
+                                        {
+                                            StartDate = g.Key.StartDate,
+                                            Category = g.Key.CategoryName,
+                                            Count = g.Count()
+                                        })
+                                    .OrderBy(x => x.StartDate);
 
-        CategoryPerMonth = SupportLookups.GroupBy(i => new[] { i.StartMonth, i.CategoryId })
+        OthersPerMonth = SupportLookups.Where(x => x.CategoryId == 3)
+                                         .GroupBy(i => new { i.StartDate, i.CategoryName })
                                          .Select(g => new CategoryPerMonthReport()
-                                         {
-                                             Month = g.Key.M
-
-                                         })
-
-                                         Support
-
-    items
-    .GroupBy(i => i.Category)
-    .Select(g => new
-    {
-    Category = g.Key,
-    Count = g.Count()
-    });
+                                             {
+                                                 StartDate = g.Key.StartDate,
+                                                 Category = g.Key.CategoryName,
+                                                 Count = g.Count()
+                                             })
+                                    .OrderBy(x => x.StartDate);
     }
 }
 
@@ -460,7 +465,9 @@
     public List<SupportLookup> IncidentSupportLookups { get; set; } = new List<SupportLookup>();
     public List<SupportLookup> RequestSupportLookups { get; set; } = new List<SupportLookup>();
     public SupportLookup SupportLookup { get; set; } = new SupportLookup();
-    public List<CategoryPerMonthReport> CategoryPerMonth { get; set; } = new List<CategoryPerMonthReport>();
+    public IEnumerable<CategoryPerMonthReport> IncidentPerMonth { get; set; } = new List<CategoryPerMonthReport>();
+    public IEnumerable<CategoryPerMonthReport> RequestsPerMonth { get; set; } = new List<CategoryPerMonthReport>();
+    public IEnumerable<CategoryPerMonthReport> OthersPerMonth { get; set; } = new List<CategoryPerMonthReport>();
 
     void OnChange(int index)
     {
@@ -510,47 +517,6 @@
         public string Description { get; set; }
     }
 }
-
-<RadzenStack class="rz-p-0 rz-p-md-1 rz-p-lg-1">
-
-    <RadzenCard Variant="Variant.Outlined">
-        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap">
-            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-                <RadzenCheckBox @bind-Value="@smooth" Name="smooth"></RadzenCheckBox>
-                <RadzenLabel Text="Smooth" Component="smooth" />
-            </RadzenStack>
-            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-                <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
-                <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
-            </RadzenStack>
-        </RadzenStack>
-    </RadzenCard>
-
-    <RadzenChart>
-        <RadzenColumnSeries Data="@IncidentSupportLookups" CategoryProperty="Quarter" Title="2024" LineType="LineType.Dashed" ValueProperty="Revenue">
-            <RadzenSeriesDataLabels Visible="@showDataLabels" />
-        </RadzenColumnSeries>
-        <RadzenColumnOptions Radius="5" />
-        <RadzenValueAxis>
-            <RadzenGridLines Visible="true" />
-            <RadzenAxisTitle Text="Categories" />
-        </RadzenValueAxis>
-    </RadzenChart>
-
-    <RadzenChart>
-        <RadzenAreaSeries Smooth="@smooth" Data="@IncidentSupportLookups" CategoryProperty="StartDateTime" Title="Incident" ValueProperty="CategoryId" RenderingOrder="1">
-            <RadzenSeriesDataLabels Visible="@showDataLabels" />
-        </RadzenAreaSeries>
-        <RadzenAreaSeries Smooth="@smooth" Data="@RequestSupportLookups" CategoryProperty="StartDateTime" Title="Request" LineType="LineType.Dashed" ValueProperty="CategoryId">
-            <RadzenSeriesDataLabels Visible="@showDataLabels" />
-        </RadzenAreaSeries>
-        <RadzenCategoryAxis Padding="20" />
-        <RadzenValueAxis>
-            <RadzenGridLines Visible="true" />
-            <RadzenAxisTitle Text="Categories" />
-        </RadzenValueAxis>
-    </RadzenChart>
-</RadzenStack>
 
 @code {
     bool smooth = true;

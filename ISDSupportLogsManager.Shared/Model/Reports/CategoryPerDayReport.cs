@@ -8,7 +8,7 @@ namespace ISDSupportLogsManager.Shared.Model.Reports
 {
     public class CategoryPerMonthReport
     {
-        public string Month { get; set; } = string.Empty;
+        public DateOnly StartDate { get; set; }
         public string Category { get; set; } = string.Empty;
         public int Count { get; set; }
     }
